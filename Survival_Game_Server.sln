@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survival_Game_Server", "Survival_Game_Server\Survival_Game_Server.csproj", "{4E5D9717-B533-4AF4-9224-FA6F63EACC2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Shared", "Server.Shared\Server.Shared.csproj", "{4BAE87C8-6AC6-43EA-AFC0-4BEBCE92518E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4E5D9717-B533-4AF4-9224-FA6F63EACC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E5D9717-B533-4AF4-9224-FA6F63EACC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E5D9717-B533-4AF4-9224-FA6F63EACC2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BAE87C8-6AC6-43EA-AFC0-4BEBCE92518E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BAE87C8-6AC6-43EA-AFC0-4BEBCE92518E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BAE87C8-6AC6-43EA-AFC0-4BEBCE92518E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BAE87C8-6AC6-43EA-AFC0-4BEBCE92518E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

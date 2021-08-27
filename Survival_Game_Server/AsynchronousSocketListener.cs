@@ -10,15 +10,19 @@ public class AsynchronousSocketListener
     public ManualResetEvent allDone = new ManualResetEvent(false);
 
     internal event PlayerConnectedEvent OnPlayerConnected;
+
     internal event PlayerDisconnectedEvent OnPlayerDisconnected;
+
     internal event PacketReceivedEvent OnPacketReceived;
+
     internal event PacketSentEvent OnPacketSent;
 
     public long TotalBytesSent = 0;
     public long TotalBytesReceived = 0;
 
-    public AsynchronousSocketListener() { }
-
+    public AsynchronousSocketListener()
+    {
+    }
 
     public void StartListening()
     {
@@ -45,13 +49,14 @@ public class AsynchronousSocketListener
             Console.WriteLine(ex.ToString());
         }
     }
+
     internal void Send(NetworkPlayer player, Packet obj)
     {
         byte[] data = obj.Serialize();
         Socket socket = player.Connection.Socket;
         socket.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendCallback), new SendCallbackArgs { Player = player, Packet = obj });
-
     }
+
     private void AcceptCallback(IAsyncResult ar)
     {
         allDone.Set();
@@ -63,6 +68,7 @@ public class AsynchronousSocketListener
         handler.BeginReceive(player.Connection.Buffer, 0, Connection.BufferSize, SocketFlags.None, new AsyncCallback(ReadCallback), player);
         OnPlayerConnected?.Invoke(this, new PlayerEventArgs(player));
     }
+
     private void ReadCallback(IAsyncResult ar)
     {
         NetworkPlayer player = (NetworkPlayer)ar.AsyncState;
@@ -92,8 +98,8 @@ public class AsynchronousSocketListener
             {
                 Packet p = Packet.Deserialize(player.Connection.Message);
                 OnPacketReceived?.Invoke(this, new PacketEventArgs { Packet = p, Player = player });
-                player.Connection.Message.Clear();
 
+                player.Connection.Message.Clear();
             }
             handler.BeginReceive(player.Connection.Buffer, 0, Connection.BufferSize, SocketFlags.None, new AsyncCallback(ReadCallback), player);
         }
@@ -103,6 +109,7 @@ public class AsynchronousSocketListener
             handler.Close();
         }
     }
+
     private void SendCallback(IAsyncResult ar)
     {
         SendCallbackArgs args = (SendCallbackArgs)ar.AsyncState;
@@ -114,7 +121,6 @@ public class AsynchronousSocketListener
         try
         {
             bytesSent = socket.EndSend(ar);
-
         }
         catch (Exception ex)
         {
@@ -126,8 +132,6 @@ public class AsynchronousSocketListener
         OnPacketSent?.Invoke(this, new PacketEventArgs { Player = player, Packet = args.Packet });
     }
 
-
-
     private class SendCallbackArgs
     {
         public NetworkPlayer Player { get; internal set; }
@@ -135,8 +139,10 @@ public class AsynchronousSocketListener
     }
 
     internal delegate void PlayerConnectedEvent(object sender, PlayerEventArgs player);
-    internal delegate void PlayerDisconnectedEvent(object seender, PlayerEventArgs player);
+
+    internal delegate void PlayerDisconnectedEvent(object sender, PlayerEventArgs player);
+
     internal delegate void PacketReceivedEvent(object sender, PacketEventArgs args);
+
     internal delegate void PacketSentEvent(object sender, PacketEventArgs args);
 }
-

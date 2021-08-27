@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E5D9717-B533-4AF4-9224-FA6F63EACC2B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Survival_Game_Server</RootNamespace>
-    <AssemblyName>Survival_Game_Server</AssemblyName>
+    <ProjectGuid>{4BAE87C8-6AC6-43EA-AFC0-4BEBCE92518E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Server.Shared</RootNamespace>
+    <AssemblyName>Server.Shared</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <StartupObject>Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,15 +23,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>D:\Programming\Survival Game\Survival Game\Assets\Plugins\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\..\..\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,29 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventHandler.cs" />
-    <Compile Include="events\ClientInputEventArgs.cs" />
-    <Compile Include="events\HeartBeatEventArgs.cs" />
-    <Compile Include="events\MessageReceiveEventArgs.cs" />
-    <Compile Include="listener\HeartBeatSubscriber.cs" />
-    <Compile Include="listener\MessageSubscriber.cs" />
-    <Compile Include="listener\ClientInputSubscriber.cs" />
+    <Compile Include="packet\data\ByteArrayEx.cs" />
+    <Compile Include="packet\data\ClientInitPacketData.cs" />
+    <Compile Include="packet\data\ClientInputPacketData.cs" />
+    <Compile Include="packet\data\HeartbeatPacketData.cs" />
+    <Compile Include="packet\data\JoinGamePacketData.cs" />
+    <Compile Include="packet\data\MessagePacketData.cs" />
+    <Compile Include="packet\data\UpdateNamePacketData.cs" />
+    <Compile Include="packet\Packet.cs" />
+    <Compile Include="packet\PacketData.cs" />
+    <Compile Include="packet\PacketType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="NetworkPlayer.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="PacketEventArgs.cs" />
-    <Compile Include="PlayerEventArgs.cs" />
-    <Compile Include="Connection.cs" />
-    <Compile Include="AsynchronousSocketListener.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Server.Shared\Server.Shared.csproj">
-      <Project>{4bae87c8-6ac6-43ea-afc0-4bebce92518e}</Project>
-      <Name>Server.Shared</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
