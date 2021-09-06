@@ -155,11 +155,11 @@ Project Link: [https://github.com/jollyperson/survival_server](https://github.co
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/jollyperson/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/jollyperson/survival_server.vg?style=for-the-badge
 [contributors-url]: https://github.com/JollyPerson/survival_server/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/jollyperson/repo.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/jollyperson/survival_server.svg?style=for-the-badge
 [forks-url]: https://github.com/JollyPerson/survival_server/network/members
-[stars-shield]: https://img.shields.io/github/stars/jollyperson/repo.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/jollyperson/survival_server.svg?style=for-the-badge
 [stars-url]: https://github.com/jollyperson/survival_server/stargazers
-[issues-shield]: https://img.shields.io/github/issues/jollyperson/repo.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/jollyperson/survival_server.svg?style=for-the-badge
 [issues-url]: https://github.com/jollyperson/survival_server/issues
