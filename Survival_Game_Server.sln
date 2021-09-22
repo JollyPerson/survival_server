@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survival_Game_Server", "Sur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Shared", "Server.Shared\Server.Shared.csproj", "{4BAE87C8-6AC6-43EA-AFC0-4BEBCE92518E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{77471E75-4D7A-486D-B066-96D27E284C55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4BAE87C8-6AC6-43EA-AFC0-4BEBCE92518E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BAE87C8-6AC6-43EA-AFC0-4BEBCE92518E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BAE87C8-6AC6-43EA-AFC0-4BEBCE92518E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77471E75-4D7A-486D-B066-96D27E284C55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77471E75-4D7A-486D-B066-96D27E284C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77471E75-4D7A-486D-B066-96D27E284C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77471E75-4D7A-486D-B066-96D27E284C55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
